@@ -5,89 +5,113 @@ export default function Certifications() {
   const [selectedCert, setSelectedCert] = useState(null);
 
   return (
-    <section id="certifications" className="py-20 relative z-10 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section id="certifications" className="section-divider" style={{ padding: '5rem 0' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-1">
-            [ SERTIFIKASI & PENDIDIKAN ]
-          </span>
-          <h2 className="text-3xl font-bold text-white tracking-tight">
-            Kredensial Resmi & Latar Belakang Akademik
+        <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 3rem' }}>
+          <span className="section-label">[ SERTIFIKASI & PENDIDIKAN ]</span>
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#F0FDF4', letterSpacing: '-0.02em', marginTop: '0.5rem', marginBottom: 0 }}>
+            Kredensial Resmi &{' '}
+            <span className="text-gradient-lime">Latar Belakang Akademik</span>
           </h2>
-          <div className="w-12 h-1 bg-cyan-500 rounded-full mx-auto mt-3" />
+          <div className="accent-bar" />
         </div>
 
-        {/* Education Cards */}
-        <div className="mb-14">
-          <h3 className="text-base font-mono font-bold text-white mb-4">
-            Riwayat Pendidikan
+        {/* Education */}
+        <div style={{ marginBottom: '3.5rem' }}>
+          <h3 style={{
+            fontFamily: 'JetBrains Mono, monospace', fontWeight: 700, fontSize: '0.8rem',
+            color: '#A3E635', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em',
+          }}>
+            📚 Riwayat Pendidikan
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '1rem' }} className="edu-grid">
+            <style>{`@media (min-width: 768px) { .edu-grid { grid-template-columns: repeat(2, 1fr) !important; } }`}</style>
             {education.map((edu) => (
               <div
                 key={edu.institution}
-                className="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between"
+                className="card"
+                style={{ padding: '1.75rem', position: 'relative', overflow: 'hidden' }}
               >
-                <div>
-                  <div className="flex justify-between items-start gap-2 mb-2 font-mono text-xs">
-                    <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-bold">
-                      {edu.status}
-                    </span>
-                    <span className="text-slate-400">{edu.period}</span>
-                  </div>
+                {/* Top accent bar */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #A3E635, #4ade80)' }} />
 
-                  <h4 className="text-lg font-bold text-white">{edu.institution}</h4>
-                  <p className="text-xs font-mono text-indigo-400 mt-0.5">{edu.degree}</p>
-                  <p className="text-xs text-emerald-400 font-mono mt-1 font-bold">IPK: {edu.gpa}</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem', gap: '0.5rem' }}>
+                  <span className="tag" style={{ fontSize: '0.62rem' }}>{edu.status}</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4b6858' }}>{edu.period}</span>
+                </div>
 
-                  <div className="mt-3 pt-3 border-t border-slate-800 space-y-1 text-xs text-slate-300">
-                    {edu.highlights.map((h, hIdx) => (
-                      <div key={hIdx}>• {h}</div>
-                    ))}
-                  </div>
+                <h4 style={{ fontWeight: 800, fontSize: '1.05rem', color: '#F0FDF4', margin: '0 0 4px' }}>
+                  {edu.institution}
+                </h4>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', color: '#4ade80', margin: '0 0 8px' }}>
+                  {edu.degree}
+                </p>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.72rem', color: '#A3E635', fontWeight: 700, margin: '0 0 1rem' }}>
+                  IPK: {edu.gpa}
+                </p>
+
+                <div style={{ borderTop: '1px solid #2a4038', paddingTop: '0.875rem', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                  {edu.highlights.map((h, hIdx) => (
+                    <div key={hIdx} style={{ display: 'flex', gap: '8px', fontSize: '0.78rem', color: '#86efac' }}>
+                      <span style={{ color: '#A3E635', flexShrink: 0 }}>•</span>
+                      <span>{h}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Certifications Grid */}
+        {/* Certifications */}
         <div>
-          <h3 className="text-base font-mono font-bold text-white mb-4">
-            Sertifikasi Kompetensi & Keahlian (8 Certifications)
+          <h3 style={{
+            fontFamily: 'JetBrains Mono, monospace', fontWeight: 700, fontSize: '0.8rem',
+            color: '#A3E635', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em',
+          }}>
+            🏅 Sertifikasi Kompetensi ({certifications.length} Sertifikasi)
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '1rem' }} className="cert-grid">
+            <style>{`
+              @media (min-width: 640px) { .cert-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+              @media (min-width: 1024px) { .cert-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+            `}</style>
             {certifications.map((cert) => (
               <div
                 key={cert.id}
                 onClick={() => setSelectedCert(cert)}
-                className="bg-slate-900/90 p-5 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors cursor-pointer flex flex-col justify-between"
+                className="card"
+                style={{ padding: '1.4rem', cursor: 'pointer', position: 'relative', overflow: 'hidden' }}
               >
-                <div>
-                  <div className="flex justify-between items-center mb-2 font-mono text-[10px]">
-                    <span className="text-cyan-400 uppercase font-bold">{cert.category}</span>
-                    <span className="text-slate-400">{cert.year}</span>
-                  </div>
+                {/* Left accent bar */}
+                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '3px', background: 'linear-gradient(180deg, #A3E635, #4ade80)' }} />
 
-                  <h4 className="text-xs font-bold text-white leading-snug">
-                    {cert.title}
-                  </h4>
-
-                  <p className="text-[11px] text-slate-400 mt-1">
-                    {cert.issuer}
-                  </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.6rem' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.62rem', color: '#A3E635', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    {cert.category}
+                  </span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.62rem', color: '#4b6858' }}>
+                    {cert.year}
+                  </span>
                 </div>
 
-                <div className="mt-3 pt-2 border-t border-slate-800 flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-slate-500 truncate max-w-[120px]">
+                <h4 style={{ fontWeight: 700, fontSize: '0.875rem', color: '#F0FDF4', margin: '0 0 4px', lineHeight: 1.35 }}>
+                  {cert.title}
+                </h4>
+                <p style={{ fontSize: '0.75rem', color: '#4ade80', margin: '0 0 0.875rem' }}>
+                  {cert.issuer}
+                </p>
+
+                <div style={{ paddingTop: '0.75rem', borderTop: '1px solid #2a4038', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: '#4b6858', maxWidth: '130px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     ID: {cert.credentialId}
                   </span>
-                  <span className="text-cyan-400 font-bold">
-                    Verifikasi →
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.68rem', color: '#A3E635', fontWeight: 700 }}>
+                    Detail →
                   </span>
                 </div>
               </div>
@@ -95,52 +119,64 @@ export default function Certifications() {
           </div>
         </div>
 
-        {/* Modal Window */}
+        {/* Modal */}
         {selectedCert && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
             <div
               onClick={() => setSelectedCert(null)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+              style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
             />
+            <div style={{
+              position: 'relative', zIndex: 1, width: '100%', maxWidth: '500px',
+              background: '#0B1411', border: '1px solid #2a4038',
+              borderRadius: '1.25rem', padding: '2rem',
+              boxShadow: '0 0 60px rgba(163,230,53,0.1)',
+            }}>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #A3E635, #4ade80)', borderRadius: '1.25rem 1.25rem 0 0' }} />
 
-            <div className="relative w-full max-w-lg bg-[#0b0f19] border border-slate-700 rounded-2xl p-6 shadow-2xl z-10 space-y-4">
-              <div className="flex justify-between items-start">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
                 <div>
-                  <span className="text-xs font-mono text-cyan-400 uppercase font-bold">
-                    {selectedCert.category} • {selectedCert.year}
-                  </span>
-                  <h3 className="text-lg font-bold text-white mt-1">
+                  <span className="section-label">{selectedCert.category} • {selectedCert.year}</span>
+                  <h3 style={{ fontWeight: 800, fontSize: '1.1rem', color: '#F0FDF4', marginTop: '6px', marginBottom: '4px' }}>
                     {selectedCert.title}
                   </h3>
-                  <p className="text-xs font-mono text-indigo-400">
+                  <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', color: '#4ade80' }}>
                     Penerbit: {selectedCert.issuer}
                   </p>
                 </div>
                 <button
                   onClick={() => setSelectedCert(null)}
-                  className="px-2 py-1 rounded bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300"
+                  style={{
+                    padding: '6px 12px', borderRadius: '0.5rem',
+                    background: '#192720', border: '1px solid #2a4038',
+                    color: '#86efac', fontFamily: 'JetBrains Mono, monospace',
+                    fontSize: '0.7rem', cursor: 'pointer',
+                  }}
                 >
-                  [X]
+                  ✕
                 </button>
               </div>
 
-              <p className="text-xs text-slate-300 leading-relaxed p-3 rounded bg-slate-900 border border-slate-800">
+              <p style={{
+                fontSize: '0.82rem', color: '#86efac', lineHeight: 1.7,
+                padding: '1rem', borderRadius: '0.75rem',
+                background: '#192720', border: '1px solid #2a4038', marginBottom: '1rem',
+              }}>
                 {selectedCert.description}
               </p>
 
-              <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-slate-400">Credential ID:</span>
-                <span className="text-cyan-400 font-bold">{selectedCert.credentialId}</span>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', fontSize: '0.75rem', fontFamily: 'JetBrains Mono, monospace' }}>
+                <span style={{ color: '#4b6858' }}>Credential ID:</span>
+                <span style={{ color: '#A3E635', fontWeight: 700 }}>{selectedCert.credentialId}</span>
               </div>
 
-              <div className="pt-3 border-t border-slate-800 flex justify-end">
-                <button
-                  onClick={() => setSelectedCert(null)}
-                  className="px-4 py-1.5 rounded bg-cyan-500 text-black text-xs font-bold"
-                >
-                  Selesai
-                </button>
-              </div>
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="btn-accent"
+                style={{ width: '100%', padding: '10px', borderRadius: '0.75rem', fontSize: '0.8rem', fontFamily: 'JetBrains Mono, monospace', cursor: 'pointer', border: 'none' }}
+              >
+                Selesai
+              </button>
             </div>
           </div>
         )}

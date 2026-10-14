@@ -2,178 +2,143 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 
+const contactCards = [
+  { label: 'Email Resmi', value: personalInfo.email, href: `mailto:${personalInfo.email}`, color: '#A3E635' },
+  { label: 'WhatsApp / Telepon', value: personalInfo.phone, href: `https://wa.me/${personalInfo.whatsapp}?text=Halo%20Heikel`, color: '#4ade80', target: '_blank' },
+  { label: 'Lokasi', value: personalInfo.location, href: null, color: '#a7f3d0' },
+];
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-
     setIsSubmitting(true);
-
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-
-      confetti({
-        particleCount: 70,
-        spread: 60,
-        origin: { y: 0.6 }
-      });
-
-      setTimeout(() => {
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setSubmitted(false);
-      }, 5000);
+      confetti({ particleCount: 80, spread: 65, origin: { y: 0.6 }, colors: ['#A3E635', '#4ade80', '#86efac'] });
+      setTimeout(() => { setFormData({ name: '', email: '', subject: '', message: '' }); setSubmitted(false); }, 5000);
     }, 800);
   };
 
   return (
-    <section id="contact" className="py-20 relative z-10 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section id="contact" className="section-divider" style={{ padding: '5rem 0' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-1">
-            [ HUBUNGI SAYA ]
-          </span>
-          <h2 className="text-3xl font-bold text-white tracking-tight">
-            Mari Berdiskusi & Bekerja Sama
+        <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 3rem' }}>
+          <span className="section-label">[ HUBUNGI SAYA ]</span>
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#F0FDF4', letterSpacing: '-0.02em', marginTop: '0.5rem', marginBottom: '0.5rem' }}>
+            Mari Berdiskusi &{' '}
+            <span className="text-gradient-lime">Bekerja Sama</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
-            Punya penawaran kerja, peluang proyek freelance, atau sekadar ingin menyapa? Silakan kirimkan pesan!
+          <p style={{ fontSize: '0.85rem', color: '#4ade80', margin: 0 }}>
+            Terbuka untuk peluang kerja, proyek freelance, atau sekadar ingin menyapa!
           </p>
-          <div className="w-12 h-1 bg-cyan-500 rounded-full mx-auto mt-3" />
+          <div className="accent-bar" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column: Direct Contact Info */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 space-y-4">
-              <h3 className="text-base font-bold text-white font-mono">Informasi Kontak Direct</h3>
-              
-              <div className="text-xs font-mono">
-                <span className="text-slate-400 block mb-0.5">Email Resmi:</span>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="text-sm font-bold text-cyan-400 hover:underline"
-                >
-                  {personalInfo.email}
-                </a>
-              </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', alignItems: 'start' }} className="contact-grid">
+          <style>{`@media (min-width: 1024px) { .contact-grid { grid-template-columns: 5fr 7fr !important; } }`}</style>
 
-              <div className="text-xs font-mono">
-                <span className="text-slate-400 block mb-0.5">WhatsApp / Telepon:</span>
-                <a
-                  href={`https://wa.me/${personalInfo.whatsapp}?text=Halo%20Heikel,%20saya%20tertarik%20berdiskusi.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-bold text-emerald-400 hover:underline"
-                >
-                  {personalInfo.phone}
-                </a>
-              </div>
+          {/* Left: Direct Contact */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div className="card" style={{ padding: '1.75rem' }}>
+              <h3 style={{ fontWeight: 800, fontSize: '1rem', color: '#F0FDF4', marginBottom: '1.25rem' }}>
+                Informasi Kontak Direct
+              </h3>
 
-              <div className="text-xs font-mono">
-                <span className="text-slate-400 block mb-0.5">Lokasi Domisili:</span>
-                <span className="text-sm font-bold text-white">
-                  {personalInfo.location}
-                </span>
-              </div>
-
-              <div className="pt-3 border-t border-slate-800">
-                <a
-                  href={`https://wa.me/${personalInfo.whatsapp}?text=Halo%20Heikel,%20saya%20melihat%20portofolio%20website%20Anda.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-2.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs text-center transition-colors"
-                >
-                  [ Kirim Pesan via WhatsApp ]
-                </a>
-              </div>
-            </div>
-
-            {/* Social Grid Text Buttons */}
-            <div className="grid grid-cols-2 gap-3 text-xs font-mono">
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-center text-slate-300 hover:text-cyan-400 hover:border-slate-700"
-              >
-                [ GitHub Profile ]
-              </a>
+              {contactCards.map(({ label, value, href, color, target }) => (
+                <div key={label} style={{ marginBottom: '1rem', paddingBottom: '1rem', borderBottom: '1px solid #2a4038' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4b6858', display: 'block', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                    {label}
+                  </span>
+                  {href ? (
+                    <a href={href} target={target} rel="noopener noreferrer" style={{ fontWeight: 700, fontSize: '0.875rem', color: color, textDecoration: 'none' }}>
+                      {value}
+                    </a>
+                  ) : (
+                    <span style={{ fontWeight: 700, fontSize: '0.875rem', color: color }}>{value}</span>
+                  )}
+                </div>
+              ))}
 
               <a
-                href={personalInfo.linkedin}
+                href={`https://wa.me/${personalInfo.whatsapp}?text=Halo%20Heikel,%20saya%20melihat%20portofolio%20Anda.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-center text-slate-300 hover:text-cyan-400 hover:border-slate-700"
+                className="btn-accent"
+                style={{ display: 'block', textAlign: 'center', padding: '12px', borderRadius: '0.75rem', fontSize: '0.8rem', fontFamily: 'JetBrains Mono, monospace', textDecoration: 'none', marginTop: '0.5rem' }}
               >
-                [ LinkedIn Profile ]
+                💬 Kirim Pesan via WhatsApp
               </a>
             </div>
 
+            {/* Social Links */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem' }}>
+              {[
+                { label: '[ GitHub ]', href: personalInfo.github },
+                { label: '[ LinkedIn ]', href: personalInfo.linkedin },
+              ].map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                  style={{
+                    display: 'block', textAlign: 'center', padding: '12px',
+                    borderRadius: '0.75rem', fontSize: '0.75rem',
+                    fontFamily: 'JetBrains Mono, monospace', textDecoration: 'none',
+                  }}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800">
+          {/* Right: Form */}
+          <div className="card" style={{ padding: '2rem' }}>
             {submitted ? (
-              <div className="text-center py-10 space-y-3 font-mono">
-                <div className="text-emerald-400 font-bold text-lg">[ SUCCESS ]</div>
-                <h3 className="text-xl font-bold text-white">Pesan Berhasil Terkirim!</h3>
-                <p className="text-xs text-slate-300 max-w-md mx-auto">
+              <div style={{ textAlign: 'center', padding: '3rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'center' }}>
+                <div style={{ fontSize: '3rem' }}>🎉</div>
+                <div className="text-gradient-lime" style={{ fontWeight: 800, fontSize: '1.25rem' }}>Pesan Terkirim!</div>
+                <p style={{ fontSize: '0.82rem', color: '#86efac', maxWidth: '360px', lineHeight: 1.7 }}>
                   Terima kasih telah menghubungi Heikel. Pesan Anda telah diterima dan akan dibalas secepatnya.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-xs font-mono font-bold text-slate-300 mb-1 block">
-                      Nama Lengkap *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Masukkan nama Anda"
-                      className="w-full px-3 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-mono font-bold text-slate-300 mb-1 block">
-                      Alamat Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="nama@perusahaan.com"
-                      className="w-full px-3 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-                    />
-                  </div>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '1rem' }} className="form-row">
+                  <style>{`@media (min-width: 640px) { .form-row { grid-template-columns: repeat(2, 1fr) !important; } }`}</style>
+                  {['name', 'email'].map((field) => (
+                    <div key={field}>
+                      <label style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.68rem', fontWeight: 700, color: '#86efac', display: 'block', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                        {field === 'name' ? 'Nama Lengkap *' : 'Alamat Email *'}
+                      </label>
+                      <input
+                        type={field === 'email' ? 'email' : 'text'}
+                        name={field}
+                        required
+                        value={formData[field]}
+                        onChange={handleChange}
+                        placeholder={field === 'name' ? 'Masukkan nama Anda' : 'nama@perusahaan.com'}
+                        className="input-green"
+                        style={{ width: '100%', padding: '10px 14px', borderRadius: '0.625rem', fontSize: '0.82rem', boxSizing: 'border-box' }}
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono font-bold text-slate-300 mb-1 block">
+                  <label style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.68rem', fontWeight: 700, color: '#86efac', display: 'block', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                     Subjek Pesan
                   </label>
                   <input
@@ -181,37 +146,44 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Contoh: Tawaran Project Freelance / Rekrutmen"
-                    className="w-full px-3 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                    placeholder="Tawaran Project Freelance / Rekrutmen"
+                    className="input-green"
+                    style={{ width: '100%', padding: '10px 14px', borderRadius: '0.625rem', fontSize: '0.82rem', boxSizing: 'border-box' }}
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono font-bold text-slate-300 mb-1 block">
+                  <label style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.68rem', fontWeight: 700, color: '#86efac', display: 'block', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                     Pesan Anda *
                   </label>
                   <textarea
                     name="message"
-                    rows={4}
+                    rows={5}
                     required
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tuliskan rincian pesan atau tawaran Anda..."
-                    className="w-full px-3 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 resize-none"
+                    className="input-green"
+                    style={{ width: '100%', padding: '10px 14px', borderRadius: '0.625rem', fontSize: '0.82rem', resize: 'none', boxSizing: 'border-box', fontFamily: 'inherit' }}
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 rounded-lg text-xs font-mono font-bold bg-cyan-500 text-black hover:bg-cyan-400 transition-colors disabled:opacity-50"
+                  className="btn-accent"
+                  style={{
+                    width: '100%', padding: '13px', borderRadius: '0.75rem',
+                    fontSize: '0.82rem', fontFamily: 'JetBrains Mono, monospace',
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                    opacity: isSubmitting ? 0.65 : 1, border: 'none',
+                  }}
                 >
-                  {isSubmitting ? 'Mengirim Pesan...' : 'Kirim Pesan Sekarang'}
+                  {isSubmitting ? '⏳ Mengirim Pesan...' : '✉️ Kirim Pesan Sekarang'}
                 </button>
               </form>
             )}
           </div>
-
         </div>
 
       </div>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../context/ThemeContext';
 
 const navItems = [
   { label: 'Beranda', href: '#hero' },
@@ -12,7 +11,6 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,10 +18,8 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
       const sections = navItems.map(item => item.href.substring(1));
       const scrollPos = window.scrollY + 180;
-
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.offsetTop <= scrollPos) {
@@ -32,106 +28,132 @@ export default function Navbar() {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        scrolled
-          ? 'py-3 bg-[#0b0f19]/95 border-b border-slate-800 shadow-md'
-          : 'py-5 bg-transparent'
-      }`}
+      style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+        transition: 'all 0.25s ease',
+        padding: scrolled ? '10px 0' : '20px 0',
+        background: scrolled ? 'rgba(11, 20, 17, 0.95)' : 'transparent',
+        borderBottom: scrolled ? '1px solid #2a4038' : '1px solid transparent',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Brand Logo with Circular User Profile Avatar */}
-          <a href="#hero" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-cyan-400 bg-slate-800 flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200">
-              <img
-                src="/Profile.jpeg"
-                alt="Heikel Qushoyi Yulian"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-sm tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-                Heikel Q. Yulian
-              </span>
-              <span className="text-[10px] text-cyan-400 font-mono tracking-wider">
-                Software Engineer
-              </span>
-            </div>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+        {/* Brand */}
+        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+          <div style={{
+            width: 38, height: 38, borderRadius: '50%', overflow: 'hidden',
+            border: '2px solid #A3E635',
+            boxShadow: '0 0 12px rgba(163,230,53,0.3)',
+            flexShrink: 0,
+            transition: 'transform 0.2s',
+          }}>
+            <img src="/Profile.jpeg" alt="Heikel" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontWeight: 800, fontSize: '0.875rem', color: '#F0FDF4', letterSpacing: '-0.01em' }}>
+              Heikel Q. Yulian
+            </span>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', color: '#A3E635', letterSpacing: '0.12em' }}>
+              Jr. App Developer
+            </span>
+          </div>
+        </a>
+
+        {/* Desktop Nav */}
+        <nav style={{ display: 'none' }} className="md-nav">
+          <style>{`
+            @media (min-width: 768px) { .md-nav { display: flex !important; align-items: center; gap: 4px; background: rgba(25, 39, 32, 0.8); padding: 6px; border-radius: 9999px; border: 1px solid #2a4038; } }
+            @media (max-width: 767px) { .md-hide { display: none !important; } .md-show { display: flex !important; } }
+            @media (min-width: 768px) { .md-show { display: none !important; } }
+          `}</style>
+          {navItems.map((item) => {
+            const target = item.href.substring(1);
+            const isActive = activeSection === target;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: '9999px',
+                  fontSize: '0.75rem',
+                  fontWeight: isActive ? 700 : 500,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                  background: isActive ? '#A3E635' : 'transparent',
+                  color: isActive ? '#0B1411' : '#86efac',
+                }}
+                onMouseEnter={e => { if (!isActive) { e.target.style.color = '#F0FDF4'; e.target.style.background = 'rgba(163,230,53,0.1)'; }}}
+                onMouseLeave={e => { if (!isActive) { e.target.style.color = '#86efac'; e.target.style.background = 'transparent'; }}}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* CTA */}
+        <div className="md-hide" style={{ display: 'none' }}>
+          <a
+            href="#contact"
+            className="btn-accent"
+            style={{ padding: '8px 20px', borderRadius: '0.6rem', fontSize: '0.75rem', textDecoration: 'none', display: 'inline-block' }}
+          >
+            Hubungi Saya
           </a>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-900/80 px-3 py-1.5 rounded-full border border-slate-800">
-            {navItems.map((item) => {
-              const target = item.href.substring(1);
-              const isActive = activeSection === target;
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors ${
-                    isActive
-                      ? 'bg-cyan-500 text-black font-bold'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-          </nav>
-
-          {/* Action Buttons & Theme Switcher */}
-          <div className="hidden md:flex items-center gap-3">
-            
-
-            <a
-              href="#contact"
-              className="px-4 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-black hover:bg-cyan-400 transition-colors"
-            >
-              Hubungi Saya
-            </a>
-          </div>
-
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex md:hidden items-center gap-2">
-            
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="px-3 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono font-bold text-cyan-400"
-            >
-              {mobileMenuOpen ? 'Tutup [X]' : 'Menu [=]'}
-            </button>
-          </div>
-
         </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md-show"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{
+            display: 'none', alignItems: 'center', gap: 6,
+            padding: '6px 14px', borderRadius: '0.5rem',
+            background: '#192720', border: '1px solid #2a4038',
+            color: '#A3E635', fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.7rem', fontWeight: 700, cursor: 'pointer',
+          }}
+        >
+          {mobileMenuOpen ? '✕ Tutup' : '☰ Menu'}
+        </button>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0b0f19] border-b border-slate-800 mt-2 px-6 py-4 space-y-2">
+        <div style={{
+          background: '#0B1411', borderTop: '1px solid #2a4038',
+          padding: '1rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '4px',
+        }}>
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-sm font-medium rounded text-slate-300 hover:bg-slate-900 hover:text-cyan-400"
+              style={{
+                display: 'block', padding: '10px 14px', borderRadius: '0.5rem',
+                fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none',
+                color: '#86efac', transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.target.style.background = '#192720'; e.target.style.color = '#A3E635'; }}
+              onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = '#86efac'; }}
             >
               {item.label}
             </a>
           ))}
-          <div className="pt-2 border-t border-slate-800">
+          <div style={{ paddingTop: '0.75rem', borderTop: '1px solid #2a4038', marginTop: '0.5rem' }}>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center py-2 rounded text-xs font-bold bg-cyan-500 text-black"
+              className="btn-accent"
+              style={{ display: 'block', textAlign: 'center', padding: '10px', borderRadius: '0.5rem', fontSize: '0.8rem', textDecoration: 'none' }}
             >
               Hubungi Saya
             </a>

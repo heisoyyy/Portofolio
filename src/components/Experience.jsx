@@ -1,68 +1,116 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { experiences } from '../data/portfolioData';
 
 export default function Experience() {
+  const [openExp, setOpenExp] = useState(null);
+
   return (
-    <section id="experience" className="py-20 relative z-10 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section id="experience" className="section-divider" style={{ padding: '5rem 0' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-1">
-            [ PENGALAMAN KERJA ]
-          </span>
-          <h2 className="text-3xl font-bold text-white tracking-tight">
-            Jejak Pengalaman Magang & Proyek Industri
+        <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 3rem' }}>
+          <span className="section-label">[ PENGALAMAN KERJA ]</span>
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#F0FDF4', letterSpacing: '-0.02em', marginTop: '0.5rem', marginBottom: 0 }}>
+            Jejak Karir &{' '}
+            <span className="text-gradient-lime">Pengalaman Industri</span>
           </h2>
-          <div className="w-12 h-1 bg-cyan-500 rounded-full mx-auto mt-3" />
+          <div className="accent-bar" />
         </div>
 
-        {/* Timeline Container */}
-        <div className="max-w-4xl mx-auto space-y-6">
-          {experiences.map((exp) => (
-            <div
-              key={exp.id}
-              className="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-colors"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-400 text-xs font-mono font-bold">
-                  {exp.type}
-                </span>
-                <span className="text-xs text-slate-400 font-mono">{exp.period}</span>
-              </div>
+        {/* Company Banner */}
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem',
+          marginBottom: '2.5rem', padding: '1rem 1.5rem', borderRadius: '0.875rem',
+          background: 'rgba(163,230,53,0.06)', border: '1px solid rgba(163,230,53,0.2)',
+        }}>
+          <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#A3E635', boxShadow: '0 0 8px #A3E635', flexShrink: 0 }} />
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.78rem', color: '#A3E635', margin: 0, textAlign: 'center' }}>
+            🏦 2 Periode Magang — <strong>PT Bank Riau Kepri Syariah</strong> | Sep 2025 – Jul 2026 (10 Bulan Total)
+          </p>
+        </div>
 
-              <h3 className="text-lg font-bold text-white mb-1">{exp.role}</h3>
-              <div className="text-xs font-mono text-indigo-400 mb-3">
-                {exp.company} — {exp.location}
-              </div>
+        {/* Timeline */}
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
+          {/* Vertical Line */}
+          <div style={{
+            position: 'absolute', left: '1.1rem', top: '1.5rem', bottom: '1.5rem',
+            width: '2px', background: 'linear-gradient(to bottom, #A3E635, rgba(163,230,53,0.1))',
+          }} />
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                {exp.description}
-              </p>
-
-              {/* Bullet Achievements */}
-              <div className="space-y-1.5 mb-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
-                {exp.achievements.map((ach, aIdx) => (
-                  <div key={aIdx} className="flex items-start gap-2">
-                    <span className="text-cyan-400 font-bold">•</span>
-                    <span>{ach}</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {experiences.map((exp, idx) => {
+              const isOpen = openExp === exp.id;
+              return (
+                <div key={exp.id} style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                  {/* Timeline Dot */}
+                  <div style={{ paddingTop: '1.35rem', flexShrink: 0, position: 'relative', zIndex: 1 }}>
+                    <div className="timeline-dot" />
                   </div>
-                ))}
-              </div>
 
-              {/* Tech Stack Pills */}
-              <div className="flex flex-wrap gap-1.5 pt-2">
-                {exp.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono border border-slate-700"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+                  {/* Card */}
+                  <div className="card" style={{ flex: 1, padding: '1.5rem' }}>
+                    {/* Header Row */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                      <div>
+                        <span className="tag" style={{ marginBottom: '6px', display: 'inline-block' }}>{exp.type}</span>
+                        <h3 style={{ fontWeight: 800, fontSize: '1.05rem', color: '#F0FDF4', margin: 0, lineHeight: 1.3 }}>
+                          {exp.role}
+                        </h3>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.72rem', color: '#4ade80', marginTop: '4px' }}>
+                          {exp.company} — {exp.location}
+                        </div>
+                      </div>
+                      <span style={{
+                        fontFamily: 'JetBrains Mono, monospace', fontSize: '0.68rem',
+                        color: '#86efac', background: '#192720', border: '1px solid #2a4038',
+                        padding: '4px 10px', borderRadius: '0.4rem', whiteSpace: 'nowrap', flexShrink: 0,
+                      }}>
+                        {exp.period}
+                      </span>
+                    </div>
+
+                    {/* Description */}
+                    <p style={{ fontSize: '0.82rem', color: '#a7f3d0', lineHeight: 1.7, marginBottom: '1rem' }}>
+                      {exp.description}
+                    </p>
+
+                    {/* Toggle Achievements */}
+                    <button
+                      onClick={() => setOpenExp(isOpen ? null : exp.id)}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: '6px',
+                        background: 'none', border: 'none', cursor: 'pointer',
+                        fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem',
+                        color: '#A3E635', fontWeight: 700, padding: 0, marginBottom: isOpen ? '1rem' : '1rem',
+                      }}
+                    >
+                      {isOpen ? '▼ Sembunyikan Detail' : '▶ Lihat Pencapaian'}
+                    </button>
+
+                    {/* Achievements List */}
+                    {isOpen && (
+                      <div style={{ borderTop: '1px solid #2a4038', paddingTop: '1rem', marginBottom: '1rem', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        {exp.achievements.map((ach, aIdx) => (
+                          <div key={aIdx} style={{ display: 'flex', gap: '10px', fontSize: '0.8rem', color: '#86efac', lineHeight: 1.65 }}>
+                            <span style={{ color: '#A3E635', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>→</span>
+                            <span>{ach}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Tech Stack */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', paddingTop: '0.75rem', borderTop: '1px solid #2a4038' }}>
+                      {exp.skills.map((skill) => (
+                        <span key={skill} className="tag-dark">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
       </div>

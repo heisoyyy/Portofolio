@@ -3,85 +3,98 @@ import { personalInfo } from '../data/portfolioData';
 
 const specializations = [
   {
+    icon: '⚡',
     title: 'Full-Stack Web Development',
-    desc: 'Menguasai arsitektur React.js, Node.js, Laravel, dan Django dengan standar kode bersih, modular, dan teruji.'
+    desc: 'React.js, Node.js/Express, Laravel, Spring Boot — membangun aplikasi enterprise berskala besar dengan arsitektur bersih dan modular.'
   },
   {
-    title: 'Banking & Process Automation',
-    desc: 'Pengalaman 1 tahun di industri perbankan syariah merancang alat otomatisasi logbook & pengolahan rekonsiliasi data.'
+    icon: '🏦',
+    title: 'Banking & Data Engineering',
+    desc: 'ETL pipeline yang memproses ~1 juta transaksi ATM dalam ~2 menit, dashboard KPI interaktif, dan laporan otomatis untuk perbankan syariah.'
   },
   {
+    icon: '🤖',
     title: 'Machine Learning & Analytics',
-    desc: 'Pemahaman dasar model Machine Learning Python (Scikit-Learn) untuk klasifikasi dan analisis data terstruktur.'
+    desc: 'XGBoost (R² 0.9173), fine-tuning IndoBART (ROUGE-1 0.5757), dan visualisasi data ECharts/Chart.js untuk keputusan berbasis data.'
   },
   {
-    title: 'Cybersecurity Essentials',
-    desc: 'Memiliki 3 sertifikasi EC-Council (Network Defense, Ethical Hacking, Cybersecurity Essentials) & MikroTik MTCNA.'
+    icon: '🔒',
+    title: 'Security & Certification',
+    desc: 'BNSP Programmer, TOEIC 530, MTCNA MikroTik, EC-Council EHE/NDE/CE, Cisco Cybersecurity Essentials.'
   }
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 relative z-10 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section id="about" className="section-divider" style={{ padding: '5rem 0', position: 'relative' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-1">
-            [ TENTANG SAYA ]
-          </span>
-          <h2 className="text-3xl font-bold text-white tracking-tight">
-            Kombinasi Pengalaman Industri Perbankan & Akademik Teruji
+        <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 3rem' }}>
+          <span className="section-label">[ TENTANG SAYA ]</span>
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#F0FDF4', letterSpacing: '-0.02em', marginTop: '0.5rem', marginBottom: 0 }}>
+            Kombinasi Pengalaman Industri &<br />
+            <span className="text-gradient-lime">Akademik Teruji</span>
           </h2>
-          <div className="w-12 h-1 bg-cyan-500 rounded-full mx-auto mt-3" />
+          <div className="accent-bar" />
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          {/* Main Bio Card */}
-          <div className="lg:col-span-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-bold text-white">Ringkasan Profil</h3>
-                <p className="text-xs text-slate-400 font-mono">Politeknik Caltex Riau — Angkatan 2026</p>
-              </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', alignItems: 'start' }} className="about-grid">
+          <style>{`@media (min-width: 1024px) { .about-grid { grid-template-columns: 5fr 7fr !important; } }`}</style>
 
-              <p className="text-slate-300 text-sm leading-relaxed">
-                {personalInfo.bio}
+          {/* Bio Card */}
+          <div className="card" style={{ padding: '2rem', height: '100%' }}>
+            <div style={{ marginBottom: '1.25rem' }}>
+              <h3 style={{ fontWeight: 800, fontSize: '1.1rem', color: '#F0FDF4', margin: 0 }}>Ringkasan Profil</h3>
+              <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.68rem', color: '#4ade80', marginTop: '4px' }}>
+                Politeknik Caltex Riau — Angkatan 2022
               </p>
-
-              <div className="pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-300">
-                <div>• <strong>Magang 1 Tahun:</strong> Full-Stack & Automation Developer di Bank Riau Kepri Syariah</div>
-                <div>• <strong>Status Akademik:</strong> Mahasiswa Tingkat Akhir D4 Teknik Informatika (IPK 3.41)</div>
-                <div>• <strong>Fokus Utama:</strong> Enterprise Web Apps, Process Automation, & Database Engineering</div>
-              </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-800 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
-              <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Pekanbaru, Indonesia</span>
-              <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Bahasa Indonesia (Native)</span>
-              <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300">TOEIC Certified (English)</span>
+            <p style={{ color: '#86efac', fontSize: '0.875rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
+              {personalInfo.bio}
+            </p>
+
+            <div style={{ borderTop: '1px solid #2a4038', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {[
+                { label: 'Magang', value: 'Full-Stack & Data ML — Bank Riau Kepri Syariah (10 Bulan)' },
+                { label: 'Akademik', value: 'Mahasiswa Tingkat Akhir D4 Teknik Informatika (IPK 3.41/4.00)' },
+                { label: 'Fokus', value: 'Enterprise Web, ETL Pipeline, ML Integration, Automation' },
+              ].map(({ label, value }) => (
+                <div key={label} style={{ display: 'flex', gap: '8px', fontSize: '0.8rem' }}>
+                  <span style={{ color: '#A3E635', fontFamily: 'JetBrains Mono, monospace', fontWeight: 700, minWidth: '72px', flexShrink: 0 }}>{label}:</span>
+                  <span style={{ color: '#d1fae5' }}>{value}</span>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid #2a4038', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              {['Pekanbaru, Indonesia', 'Bahasa Indonesia (Native)', 'TOEIC Score 530 (English)'].map(tag => (
+                <span key={tag} className="tag-dark">{tag}</span>
+              ))}
             </div>
           </div>
 
           {/* Specialization Cards */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
             {specializations.map((spec) => (
               <div
                 key={spec.title}
-                className="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-cyan-500/50 transition-colors"
+                className="card"
+                style={{ padding: '1.4rem', display: 'flex', flexDirection: 'column', gap: '10px' }}
               >
-                <div>
-                  <h4 className="text-sm font-bold text-cyan-400 mb-2">{spec.title}</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed">{spec.desc}</p>
-                </div>
+                <div style={{ fontSize: '1.5rem' }}>{spec.icon}</div>
+                <h4 style={{ fontWeight: 700, fontSize: '0.875rem', color: '#A3E635', margin: 0, lineHeight: 1.3 }}>
+                  {spec.title}
+                </h4>
+                <p style={{ fontSize: '0.78rem', color: '#86efac', lineHeight: 1.65, margin: 0 }}>
+                  {spec.desc}
+                </p>
               </div>
             ))}
           </div>
-
         </div>
-
       </div>
     </section>
   );

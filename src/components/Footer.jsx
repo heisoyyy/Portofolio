@@ -2,74 +2,90 @@ import React from 'react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="relative z-10 border-t border-slate-800 bg-[#070a12] py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          
-          {/* Brand & Tagline */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full overflow-hidden border border-cyan-400 bg-slate-800 flex-shrink-0">
-                <img
-                  src="/Profile.jpeg"
-                  alt="Heikel Qushoyi Yulian"
-                  className="w-full h-full object-cover object-top"
-                />
+    <footer style={{
+      position: 'relative', zIndex: 10,
+      borderTop: '1px solid #2a4038',
+      background: 'rgba(7,14,11,0.98)',
+      padding: '2.5rem 0 2rem',
+    }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }} className="footer-inner">
+          <style>{`@media (min-width: 768px) { .footer-inner { flex-direction: row !important; justify-content: space-between !important; } }`}</style>
+
+          {/* Brand */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }} className="footer-brand">
+            <style>{`@media (min-width: 768px) { .footer-brand { align-items: flex-start !important; } }`}</style>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{
+                width: 32, height: 32, borderRadius: '50%', overflow: 'hidden',
+                border: '2px solid #A3E635',
+                boxShadow: '0 0 10px rgba(163,230,53,0.25)',
+              }}>
+                <img src="/Profile.jpeg" alt="Heikel" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
               </div>
-              <span className="font-bold text-white text-sm">
+              <span style={{ fontWeight: 800, color: '#F0FDF4', fontSize: '0.9rem' }}>
                 {personalInfo.name}
               </span>
             </div>
-            <p className="text-xs text-slate-400 font-mono">
-              Software Engineer | Full-Stack & Automation Developer — Politeknik Caltex Riau 2026
+            <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: '#4b6858', margin: 0, textAlign: 'center' }}>
+              Junior Application Developer | Web & Data — PCR 2026
             </p>
           </div>
 
-          {/* Social Links & Back to Top (Text Buttons) */}
-          <div className="flex items-center gap-3 font-mono text-xs">
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-2.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400"
-            >
-              GitHub
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-2.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="px-2.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400"
-            >
-              Email
-            </a>
+          {/* Links */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {[
+              { label: 'GitHub', href: personalInfo.github, external: true },
+              { label: 'LinkedIn', href: personalInfo.linkedin, external: true },
+              { label: 'Email', href: `mailto:${personalInfo.email}`, external: false },
+            ].map(({ label, href, external }) => (
+              <a
+                key={label}
+                href={href}
+                target={external ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                style={{
+                  padding: '6px 14px', borderRadius: '0.5rem',
+                  background: '#192720', border: '1px solid #2a4038',
+                  color: '#86efac', fontSize: '0.72rem',
+                  fontFamily: 'JetBrains Mono, monospace', textDecoration: 'none',
+                  transition: 'all 0.15s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#A3E635'; e.currentTarget.style.color = '#A3E635'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a4038'; e.currentTarget.style.color = '#86efac'; }}
+              >
+                {label}
+              </a>
+            ))}
 
-            {/* Back To Top Button */}
             <button
               onClick={scrollToTop}
-              className="px-3 py-1.5 rounded bg-cyan-500 text-black font-bold hover:bg-cyan-400"
+              className="btn-accent"
+              style={{
+                padding: '6px 14px', borderRadius: '0.5rem',
+                fontSize: '0.72rem', fontFamily: 'JetBrains Mono, monospace',
+                cursor: 'pointer', border: 'none',
+              }}
               title="Kembali ke Atas"
             >
               ▲ Ke Atas
             </button>
           </div>
-
         </div>
 
-        <div className="mt-6 pt-4 border-t border-slate-900 text-center text-xs font-mono text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+        {/* Bottom Row */}
+        <div style={{
+          marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #1a2b22',
+          display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center',
+          fontFamily: 'JetBrains Mono, monospace', fontSize: '0.62rem', color: '#374a3d',
+          textAlign: 'center',
+        }}>
           <span>© {new Date().getFullYear()} Heikel Qushoyi Yulian. All rights reserved.</span>
-          <span>Lightweight Clean Web Architecture</span>
+          <span style={{ color: '#A3E635', opacity: 0.6 }}>Built with React + Vite · Forest Green Theme</span>
         </div>
       </div>
     </footer>
