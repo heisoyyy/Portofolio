@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { projects } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
 
-const categories = ['Semua', 'Full-Stack', 'Enterprise', 'Frontend', 'Automation'];
+const categories = ['Semua', 'Full-Stack', 'Data & ML', 'Mobile'];
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('Semua');

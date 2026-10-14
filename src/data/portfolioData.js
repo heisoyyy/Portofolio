@@ -1,92 +1,80 @@
 export const personalInfo = {
   name: "Heikel Qushoyi Yulian",
   shortName: "Heikel",
-  title: "Software Engineer | Full-Stack Developer",
+  title: "Junior Application Developer | Web & Data",
   status: "Mahasiswa D4 Teknik Informatika — Politeknik Caltex Riau",
-  graduationDate: "Oktober 2026",
+  graduationDate: "2026",
   gpa: "3.41 / 4.00",
-  tagline: "Membangun Solusi Digital Berperforma Tinggi, Scalable, dan Berpengalaman 1 Tahun di Industri Perbankan Syariah.",
-  bio: "Saya adalah mahasiswa D4 Teknik Informatika Politeknik Caltex Riau dengan pengalaman magang 1 tahun di Bank Riau Kepri Syariah sebagai Full-Stack & Automation Developer, serta beberapa proyek pengabdian dan industri. Berfokus pada pengembangan web modern (Laravel, React.js, Node.js, Django, Python) dengan standar kualitas tinggi, keamanan, serta antarmuka yang responsif dan interaktif.",
-  location: "Pekanbaru, Riau, Indonesia",
+  tagline: "Membangun Solusi Digital Berperforma Tinggi — 10 Bulan Pengalaman Software Engineering di Industri Perbankan Syariah.",
+  bio: "Lulusan Teknik Informatika dengan 10 bulan pengalaman software engineering internship di bidang perbankan (Bank Riau Kepri Syariah). Berpengalaman membangun aplikasi web internal dengan JavaScript, React, Node.js/Express, dan MySQL — dari penerjemahan kebutuhan pengguna hingga UAT dan dokumentasi teknis. Membangun ETL pipeline yang memproses ~1 juta transaksi ATM dalam ~2 menit.",
+  location: "Pekanbaru, Indonesia",
   email: "heikelqushoyi@gmail.com",
   phone: "+62 822-3781-4865",
   whatsapp: "6282237814865",
   github: "https://github.com/heisoyyy",
-  linkedin: "https://linkedin.com/in/heikel-qushoyi-yulian",
+  linkedin: "https://www.linkedin.com/in/heikel-qushoyi-13436739a/",
   resumeUrl: "/cv-heikel.pdf",
   stats: [
-    { label: "Tahun Pengalaman", value: 1, suffix: " Thn+" },
-    { label: "Proyek Utama", value: 5, suffix: "+" },
+    { label: "Bulan Pengalaman", value: 10, suffix: " Bln" },
+    { label: "Proyek Utama", value: 6, suffix: "+" },
     { label: "IPK Akademik", value: 3.41, decimal: 2 },
-    { label: "Sertifikasi", value: 8, suffix: "" }
+    { label: "Sertifikasi", value: 5, suffix: "" }
   ]
 };
 
 export const experiences = [
   {
-    id: "brk-syariah",
-    role: "Full-Stack & Automation Developer (Magang 1 Tahun)",
-    company: "PT Bank Riau Kepri Syariah (Perseroda)",
+    id: "brks-fullstack-data",
+    role: "Software Engineering Intern — Full-Stack, Data & ML",
+    company: "Bank Riau Kepri Syariah",
     location: "Pekanbaru, Indonesia",
-    period: "Januari 2025 – Januari 2026",
-    type: "Magang Industri (1 Tahun)",
-    description: "Mengembangkan berbagai aplikasi web internal perbankan, alat otomatisasi entri data, serta sistem manajemen rekonsiliasi transaksi untuk meningkatkan efisiensi operasional divisi IT & Keuangan.",
+    period: "Mar 2026 – Jul 2026",
+    type: "Magang Industri",
+    description: "Mengembangkan sistem monitoring transaksi bank dengan ETL pipeline otomatis, dashboard KPI interaktif, dan laporan Excel/PDF untuk pengguna internal bank; diamankan dengan JWT dan RBAC menggunakan React, Node.js/Express, dan MySQL.",
     achievements: [
-      "Mengembangkan REKAN BRK (Sistem Rekonsiliasi & Monitoring Transaksi) untuk pencocokan data keuangan skala besar.",
-      "Menciptakan SIPENA BRKS Autofill (Browser Extension Automation) yang memangkas waktu entri data harian hingga 70%.",
-      "Berkontribusi dalam pengembangan BTMS (Bank Training Management System) untuk pengelolaan pelatihan pegawai internal.",
-      "Mengintegrasikan RESTful API aman sesuai standar perbankan syariah."
+      "Membangun Bank Transaction Monitoring System dengan ETL pipeline otomatis memproses ~1 juta transaksi ATM dalam ~2 menit, dashboard KPI interaktif, serta laporan Excel/PDF dengan JWT auth dan RBAC.",
+      "Mengembangkan dashboard prediksi & analisis kas ATM untuk 379 ATM di 4 kota, mengintegrasikan model XGBoost melalui FastAPI; mencapai MAE 7.17 jam dan R² 0.9173 untuk perencanaan cash-replenishment.",
+      "Membangun aplikasi web internal (ATM First Line Maintenance dan SOP Knowledge Base) berdasarkan kebutuhan dari Divisi Operasional & Akuntansi, dengan manajemen insiden, pelacakan tugas, analitik, dan visualisasi decision-tree ReactFlow.",
+      "Mengotomatisasi monitoring ATM dan alur entri data klaim menggunakan Python, Selenium, dan FastAPI. Sistem mengakses REKAN ATM secara otomatis, mengunduh data monitoring, memfilter data per wilayah, dan mendistribusikan hasilnya ke grup WhatsApp terkait.",
+      "Mempresentasikan demo sistem, mendukung UAT, deployment, dan troubleshooting solusi yang digunakan divisi bank internal."
     ],
-    skills: ["Laravel", "React.js", "PostgreSQL", "JavaScript Automation", "REST API", "Tailwind CSS"]
+    skills: ["React", "Node.js", "Express", "MySQL", "Python", "XGBoost", "FastAPI", "Selenium", "JWT", "ReactFlow", "ECharts", "Chart.js"]
   },
   {
-    id: "qrion",
-    role: "Frontend Developer",
-    company: "Qrion",
-    location: "Pekanbaru, Riau",
-    period: "2025",
-    type: "Proyek Profesional",
-    description: "Merancang dan memuat antarmuka web interaktif berkinerja tinggi, mengutamakan pengalaman pengguna (UI/UX) yang intuitif serta komponen modular yang reusable.",
+    id: "brks-fullstack-doc",
+    role: "Software Engineering Intern — Full-Stack & Documentation",
+    company: "Bank Riau Kepri Syariah",
+    location: "Pekanbaru, Indonesia",
+    period: "Sep 2025 – Jan 2026",
+    type: "Magang Industri",
+    description: "Membangun IT Project Timeline Monitoring System dan mengimplementasikan berbagai fitur enterprise untuk divisi Teknologi Sistem Informasi.",
     achievements: [
-      "Membangun arsitektur komponen React yang bersih, responsif, dan mudah di-maintain.",
-      "Mengimplementasikan state management dan animasi antarmuka yang mulus.",
-      "Bekerja sama dengan tim backend untuk integrasi API yang lancar."
+      "Membangun IT Project Timeline Monitoring System (React, Java 17, Spring Boot 3, MySQL) untuk melacak timeline proyek, PIC, status dokumen, dan progress untuk divisi Teknologi Sistem Informasi.",
+      "Mengimplementasikan role-based access control, audit trail, impor/ekspor Excel/CSV, pelaporan, dan visualisasi data untuk meningkatkan akuntabilitas proyek.",
+      "Menyusun 4 Functional Specification Documents (FSD) untuk sistem pembayaran internal: QRIS CPM, transaksi NFC, dan QRIS pada terminal EDC.",
+      "Melakukan pengujian bug pra-rilis pada aplikasi internal dan melaporkan defect ke tim IT untuk resolusi."
     ],
-    skills: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "Vite", "Framer Motion"]
-  },
-  {
-    id: "pkm-mahad",
-    role: "Website Developer (PKM)",
-    company: "Ma'had Abu Ad Darda'",
-    location: "Pekanbaru, Riau",
-    period: "2024",
-    type: "Pengabdian Kepada Masyarakat",
-    description: "Mengembangkan platform website resmi untuk Ma'had Abu Ad Darda' sebagai sarana profil lembaga, berita, dan pendaftaran santri baru.",
-    achievements: [
-      "Mendesain dan mempublikasikan website profil lembaga yang informatif dan responsif.",
-      "Menyediakan sistem informasi pendaftaran santri yang memudahkan calon wali santri.",
-      "Mendapat penghargaan sertifikat apresiasi atas kontribusi teknologi."
-    ],
-    skills: ["PHP", "Laravel", "MySQL", "Bootstrap", "JavaScript", "SEO Optimization"]
+    skills: ["React", "Java 17", "Spring Boot 3", "MySQL", "RBAC", "Audit Trail", "FSD Writing", "UAT Testing"]
   }
 ];
 
 export const projects = [
   {
-    id: "btms",
-    title: "BTMS (Bank Training Management System)",
-    subtitle: "Sistem Manajemen Pelatihan Pegawai Perbankan",
+    id: "bank-txn-monitoring",
+    title: "Bank Transaction Monitoring System",
+    subtitle: "ETL Pipeline, KPI Dashboard & Laporan Otomatis",
     category: "Full-Stack",
-    year: "2025",
+    year: "2026",
     client: "Bank Riau Kepri Syariah",
     featured: true,
-    description: "Platform enterprise untuk mengelola seluruh siklus pelatihan internal pegawai Bank Riau Kepri Syariah, mulai dari pembuatan jadwal, alokasi materi, hingga penerbitan sertifikat digital.",
-    details: "BTMS dirancang untuk menyederhanakan proses pelatihan internal divisi HRD. Sistem ini dilengkapi dengan penjejakan kehadiran otomatis, evaluasi kuis, serta pembuatan laporan analitik performa pelatihan pegawai secara real-time.",
-    techStack: ["Laravel", "React.js", "PostgreSQL", "Tailwind CSS", "REST API"],
+    description: "Sistem monitoring transaksi bank dengan ETL pipeline otomatis yang memproses ~1 juta transaksi ATM dalam ~2 menit, dilengkapi dashboard KPI interaktif serta laporan Excel/PDF untuk pengguna internal; diamankan JWT dan RBAC.",
+    details: "Dibangun menggunakan React, Node.js/Express, dan MySQL. Sistem ini menangani pemrosesan data skala besar secara real-time, menampilkan visualisasi pergerakan transaksi harian, dan menghasilkan laporan bulanan secara otomatis. Fitur keamanan mencakup JWT authentication dan role-based access control.",
+    techStack: ["React", "Node.js", "Express", "MySQL", "JWT", "ECharts", "Chart.js", "Excel/PDF Engine"],
     highlights: [
-      "Manajemen modul & jadwal pelatihan terintegrasi",
-      "Penerbitan sertifikat digital PDF dengan verifikasi barcode",
-      "Dashboard analitik performa peserta dan pengajar"
+      "ETL pipeline memproses ~1 juta transaksi ATM dalam ~2 menit",
+      "Dashboard KPI interaktif dengan visualisasi real-time",
+      "Laporan Excel/PDF terotomatisasi untuk divisi internal bank",
+      "JWT Auth + Role-Based Access Control (RBAC)"
     ],
     github: "https://github.com/heisoyyy",
     demo: null,
@@ -94,20 +82,21 @@ export const projects = [
     accentColor: "#6366f1"
   },
   {
-    id: "rekan-brk",
-    title: "REKAN BRK",
-    subtitle: "Sistem Rekonsiliasi & Monitoring Transaksi Syariah",
-    category: "Enterprise",
-    year: "2025",
+    id: "atm-cash-prediction",
+    title: "ATM Cash Prediction & Analysis Dashboard",
+    subtitle: "ML-powered Cash-Replenishment Planning — 379 ATM",
+    category: "Data & ML",
+    year: "2026",
     client: "Bank Riau Kepri Syariah",
     featured: true,
-    description: "Sistem pengolahan data transaksi perbankan untuk otomatisasi pencocokan saldo (rekonsiliasi) dan deteksi selisih transaksi harian secara cepat.",
-    details: "Aplikasi ini memproses ribuan data log transaksi per hari untuk mendeteksi mismatch antar sistem ledger. Dilengkapi dengan grafik visualisasi pergerakan transaksi dan laporan eksportir otomatis.",
-    techStack: ["Node.js", "Express.js", "React.js", "PostgreSQL", "Chart.js"],
+    description: "Dashboard prediksi & analisis kas ATM untuk 379 ATM di 4 kota, mengintegrasikan model XGBoost melalui FastAPI. Model mencapai MAE 7.17 jam dan R² 0.9173 untuk perencanaan cash-replenishment.",
+    details: "Mengintegrasikan model machine learning XGBoost yang di-serve melalui FastAPI ke dalam dashboard React interaktif. Model dilatih untuk memprediksi waktu kehabisan kas ATM, memungkinkan tim operasional melakukan perencanaan refill lebih efisien dan mengurangi downtime ATM.",
+    techStack: ["Python", "XGBoost", "FastAPI", "React", "MySQL", "Pandas", "Chart.js"],
     highlights: [
-      "Pencocokan otomatis ribuan baris transaksi per menit",
-      "Alerting system untuk transaksi berpotensi selisih",
-      "Ekspor laporan bulanan PDF & Excel terotomatisasi"
+      "Prediksi kas 379 ATM di 4 kota secara akurat",
+      "MAE 7.17 jam & R² 0.9173 — performa tinggi",
+      "Model XGBoost di-serve via FastAPI",
+      "Mengurangi downtime ATM secara signifikan"
     ],
     github: "https://github.com/heisoyyy",
     demo: null,
@@ -115,20 +104,21 @@ export const projects = [
     accentColor: "#38bdf8"
   },
   {
-    id: "sipra",
-    title: "SIPRA (Sistem Informasi PKL / Magang)",
-    subtitle: "Platform Monitoring & Evaluasi Magang Academic",
+    id: "it-project-timeline",
+    title: "IT Project Timeline Monitoring System",
+    subtitle: "Sistem Monitoring Proyek — Divisi TI Bank",
     category: "Full-Stack",
     year: "2025",
-    client: "Politeknik Caltex Riau",
+    client: "Bank Riau Kepri Syariah",
     featured: true,
-    description: "Sistem informasi terpadu untuk pengelolaan alur Praktik Kerja Lapangan (PKL) mahasiswa, pengajuan dosen pembimbing, hingga pengisian logbook harian.",
-    details: "SIPRA memfasilitasi 3 role utama (Mahasiswa, Dosen Pembimbing, Supervisor Industri) dalam satu platform terintegrasi. Menghilangkan kerumitan berkas fisik dan mempercepat verifikasi magang.",
-    techStack: ["Laravel", "MySQL", "Bootstrap 5", "JavaScript", "PDF Engine"],
+    description: "Sistem untuk melacak timeline proyek IT, PIC, status dokumen, dan progres untuk divisi Teknologi Sistem Informasi. Dilengkapi RBAC, audit trail, dan impor/ekspor Excel/CSV.",
+    details: "Dibangun dengan React, Java 17, Spring Boot 3, dan MySQL. Sistem ini menggantikan pengelolaan manual proyek dengan platform terpusat yang memudahkan koordinasi antar divisi, visualisasi timeline Gantt, dan pelaporan kemajuan proyek secara transparan.",
+    techStack: ["React", "Java 17", "Spring Boot 3", "MySQL", "RBAC", "Excel/CSV"],
     highlights: [
-      "Workflow verifikasi berkas magang multi-level",
-      "Formulir logbook harian interaktif & penilaian supervisor",
-      "Autogenerate lembar pengesahan & sertifikat magang"
+      "Tracking timeline proyek, PIC, dan status dokumen",
+      "Role-based access control & audit trail",
+      "Import/export Excel/CSV dan visualisasi data",
+      "Digunakan aktif oleh divisi Teknologi Sistem Informasi"
     ],
     github: "https://github.com/heisoyyy",
     demo: null,
@@ -136,20 +126,43 @@ export const projects = [
     accentColor: "#34d399"
   },
   {
-    id: "sipena-autofill",
-    title: "SIPENA BRKS Autofill Tool",
-    subtitle: "Browser Extension Automation untuk Efisiensi Bank",
-    category: "Automation",
+    id: "competition-management",
+    title: "Competition Management Website",
+    subtitle: "Platform Pendaftaran Lomba LKBB KOMANDO",
+    category: "Full-Stack",
     year: "2025",
-    client: "BRK Syariah Operations",
+    client: "SMAN Plus Provinsi Riau",
     featured: true,
-    description: "Ekstensi peramban otomatisasi yang mempercepat pengisian formulir berulang di portal SIPENA BRKS dengan akurasi tinggi.",
-    details: "Alat ini dikembangkan untuk mengurangi human error dan menghemat waktu staf operasional dalam melakukan pemrosesan formulir massal. Menggunakan teknik DOM manipulation & data parsing otomatis.",
-    techStack: ["JavaScript (ES6+)", "Browser Extension API", "CSS3", "DOM Automation"],
+    description: "Platform web untuk kompetisi LKBB KOMANDO di SMAN Plus Provinsi Riau, mencakup pendaftaran, informasi kompetisi, 3 role pengguna, upload dokumen PDF/Word, serta notifikasi Email dan Telegram otomatis.",
+    details: "Dibangun menggunakan Laravel, MySQL, dan Bootstrap sebagai Proyek Akhir. Dikembangkan dengan metodologi Prototyping dan divalidasi melalui pengujian black-box dan usability, serta didokumentasikan dalam laporan akhir 5 bab.",
+    techStack: ["Laravel", "MySQL", "Bootstrap", "Email Notification", "Telegram Bot API"],
     highlights: [
-      "Memangkas waktu pengisian formulir hingga 70%",
-      "Validasi format data otomatis sebelum dikirim",
-      "Keamanan data terjamin tanpa mengirim data luar"
+      "3 role pengguna: Admin, Peserta, Juri",
+      "Upload dokumen PDF/Word & notifikasi Email + Telegram otomatis",
+      "Pengujian black-box dan usability testing",
+      "Didokumentasikan dalam laporan akhir 5 bab"
+    ],
+    github: "https://github.com/heisoyyy",
+    demo: null,
+    imageBg: "linear-gradient(135deg, #7c3aed 0%, #312e81 100%)",
+    accentColor: "#a78bfa"
+  },
+  {
+    id: "indobart-summarization",
+    title: "Indonesian Review Text Summarization",
+    subtitle: "Fine-tuned IndoBART — 5.000 Ulasan",
+    category: "Data & ML",
+    year: "2025",
+    client: "Akademik / Riset",
+    featured: false,
+    description: "Fine-tuning IndoBART untuk summarisasi abstraktif pada 5.000 ulasan bahasa Indonesia. Mencapai ROUGE-1 0.5757 sebagai metrik evaluasi utama.",
+    details: "Proyek NLP menggunakan Hugging Face Transformers untuk fine-tuning model IndoBART pada dataset ulasan produk berbahasa Indonesia. Proses meliputi preprocessing data, tokenisasi, fine-tuning, dan evaluasi menggunakan metrik ROUGE (Recall-Oriented Understudy for Gisting Evaluation).",
+    techStack: ["Python", "IndoBART", "Hugging Face Transformers", "ROUGE Evaluation", "Pandas"],
+    highlights: [
+      "ROUGE-1 0.5757 pada 5.000 ulasan bahasa Indonesia",
+      "Fine-tuning IndoBART untuk summarisasi abstraktif",
+      "Evaluasi komprehensif dengan metrik ROUGE",
+      "Dataset ulasan produk berbahasa Indonesia"
     ],
     github: "https://github.com/heisoyyy",
     demo: null,
@@ -157,116 +170,112 @@ export const projects = [
     accentColor: "#fbbf24"
   },
   {
-    id: "competition-web",
-    title: "Competition Profile & Registration Web",
-    subtitle: "Platform Pendaftaran & Profil Lomba Nasional",
-    category: "Frontend",
+    id: "water-monitor",
+    title: "WaterMonitor",
+    subtitle: "Aplikasi Android — Pelaporan Kualitas Air",
+    category: "Mobile",
     year: "2024",
-    client: "Event Organizer",
+    client: "Akademik",
     featured: false,
-    description: "Website portal pendaftaran kompetisi tingkat nasional dengan antarmuka dinamis, jadwal acara interaktif, dan formulir pendaftaran multi-step.",
-    details: "Dibuat dengan animasi antarmuka yang menarik untuk meningkatkan konversi calon peserta kompetisi. Dilengkapi fitur upload berkas persyaratan dan konfirmasi pembayaran.",
-    techStack: ["React.js", "Tailwind CSS", "Framer Motion", "Vite"],
+    description: "Merancang dan memprototipi aplikasi Android untuk pelaporan dan monitoring kualitas air. Dikembangkan menggunakan Kotlin dan Figma untuk desain antarmuka.",
+    details: "Aplikasi mobile berbasis Kotlin yang memungkinkan pengguna melaporkan kondisi kualitas air di sekitar mereka secara real-time. Proses desain menggunakan Figma sebagai alat prototyping untuk menghasilkan antarmuka yang intuitif sebelum implementasi.",
+    techStack: ["Kotlin", "Android", "Figma"],
     highlights: [
-      "Formulir pendaftaran multi-step dengan validasi real-time",
-      "Tampilan UI/UX modern beranimasi smooth",
-      "Desain 100% responsif mobile & desktop"
+      "Pelaporan kualitas air berbasis lokasi",
+      "Prototype UI/UX dengan Figma",
+      "Native Android dengan Kotlin",
+      "Fitur monitoring real-time"
     ],
     github: "https://github.com/heisoyyy",
     demo: null,
-    imageBg: "linear-gradient(135deg, #7c3aed 0%, #312e81 100%)",
-    accentColor: "#a78bfa"
+    imageBg: "linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%)",
+    accentColor: "#7dd3fc"
   }
 ];
 
 export const skillCategories = [
   {
-    name: "Languages & Core",
+    name: "Web Frontend",
     icon: "Code2",
     skills: [
-      { name: "JavaScript (ES6+)", level: 90, experience: "3 Thn" },
-      { name: "TypeScript", level: 82, experience: "2 Thn" },
-      { name: "Python", level: 85, experience: "3 Thn" },
-      { name: "PHP", level: 88, experience: "3 Thn" },
-      { name: "HTML5 / CSS3", level: 95, experience: "4 Thn" }
+      { name: "JavaScript", level: 90, experience: "3 Thn" },
+      { name: "React.js", level: 88, experience: "2 Thn" },
+      { name: "HTML5 / CSS3", level: 92, experience: "4 Thn" },
+      { name: "Tailwind CSS", level: 90, experience: "2 Thn" },
+      { name: "Bootstrap", level: 85, experience: "2 Thn" },
+      { name: "Ant Design / ReactFlow", level: 78, experience: "1 Thn" },
+      { name: "Vite", level: 80, experience: "1 Thn" }
     ]
   },
   {
-    name: "Frameworks & Libraries",
+    name: "Web Backend",
     icon: "Layers",
     skills: [
-      { name: "React.js", level: 90, experience: "2.5 Thn" },
-      { name: "Laravel", level: 88, experience: "2.5 Thn" },
-      { name: "Node.js / Express", level: 82, experience: "2 Thn" },
-      { name: "Django", level: 78, experience: "1.5 Thn" },
-      { name: "Tailwind CSS", level: 92, experience: "3 Thn" },
-      { name: "Framer Motion", level: 85, experience: "1.5 Thn" }
+      { name: "Node.js / Express", level: 85, experience: "2 Thn" },
+      { name: "REST API & JWT Auth", level: 88, experience: "2 Thn" },
+      { name: "Spring Boot (Java)", level: 75, experience: "1 Thn" },
+      { name: "JPA / Hibernate", level: 72, experience: "1 Thn" },
+      { name: "Laravel (PHP)", level: 82, experience: "2 Thn" },
+      { name: "FastAPI", level: 80, experience: "1 Thn" },
+      { name: "Django", level: 75, experience: "1 Thn" }
     ]
   },
   {
-    name: "Database & Backend Tools",
+    name: "Data & Automation",
     icon: "Database",
     skills: [
-      { name: "PostgreSQL", level: 85, experience: "2 Thn" },
-      { name: "MySQL", level: 90, experience: "3 Thn" },
-      { name: "MongoDB", level: 75, experience: "1 Thn" },
-      { name: "RESTful APIs", level: 92, experience: "3 Thn" },
-      { name: "Postman API Testing", level: 88, experience: "2 Thn" }
+      { name: "Python", level: 88, experience: "3 Thn" },
+      { name: "SQL / MySQL", level: 90, experience: "3 Thn" },
+      { name: "Pandas", level: 85, experience: "2 Thn" },
+      { name: "OpenPyXL / ETL Pipelines", level: 82, experience: "1 Thn" },
+      { name: "Selenium", level: 80, experience: "1 Thn" },
+      { name: "ECharts / Chart.js", level: 78, experience: "1 Thn" }
     ]
   },
   {
-    name: "Cybersecurity & Specializations",
+    name: "ML & Specializations",
     icon: "ShieldCheck",
     skills: [
-      { name: "Network Defense Essentials", level: 80, badge: "EC-Council" },
-      { name: "Ethical Hacking Essentials", level: 78, badge: "EC-Council" },
-      { name: "Cybersecurity Essentials", level: 82, badge: "EC-Council" },
-      { name: "Browser Automation", level: 88, badge: "JS Extension" },
-      { name: "3D Animation Basics", level: 70, badge: "Blender" }
+      { name: "XGBoost", level: 80, badge: "ML" },
+      { name: "Hugging Face Transformers", level: 75, badge: "NLP" },
+      { name: "IndoBART / ROUGE Eval", level: 72, badge: "NLP" },
+      { name: "Kotlin / Android", level: 70, badge: "Mobile" },
+      { name: "Figma", level: 78, badge: "Design" },
+      { name: "Git & GitHub", level: 88, badge: "DevOps" }
     ]
   }
 ];
 
 export const certifications = [
   {
-    id: "lsp-programmer",
-    title: "Sertifikasi Kompetensi LSP Programmer",
-    issuer: "LSP / BNSP Republik Indonesia",
-    year: "2025",
+    id: "bnsp-programmer",
+    title: "BNSP Programmer Certification",
+    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
+    year: "2026",
     category: "Software Development",
-    credentialId: "LSP-PROG-2025-HQY",
-    description: "Sertifikasi kompetensi nasional bidang Pemrograman Web & Rekayasa Perangkat Lunak.",
+    credentialId: "BNSP-PROG-2026-HQY",
+    description: "Sertifikasi kompetensi nasional bidang Pemrograman dari Badan Nasional Sertifikasi Profesi Republik Indonesia.",
     badgeColor: "from-blue-500 to-cyan-500"
   },
   {
     id: "toeic",
-    title: "TOEIC Official English Certificate",
+    title: "TOEIC — Score 530",
     issuer: "ETS (Educational Testing Service)",
-    year: "2025",
+    year: "2026",
     category: "Language Proficiency",
-    credentialId: "TOEIC-ETS-HQY",
-    description: "Sertifikasi kemahiran Bahasa Inggris profesional untuk komunikasi bisnis dan dunia kerja internasional.",
+    credentialId: "TOEIC-ETS-2026-HQY",
+    description: "Sertifikasi kemahiran Bahasa Inggris profesional untuk komunikasi bisnis internasional dengan skor 530.",
     badgeColor: "from-indigo-500 to-purple-500"
   },
   {
-    id: "brk-internship-cert",
-    title: "Sertifikat Magang 1 Tahun BRK Syariah",
-    issuer: "PT Bank Riau Kepri Syariah (Perseroda)",
-    year: "2026",
-    category: "Professional Experience",
-    credentialId: "BRKS-MAGANG-2026",
-    description: "Surat Keterangan & Sertifikat Apresiasi Magang 1 Tahun di Divisi Teknologi Informasi BRK Syariah.",
-    badgeColor: "from-emerald-500 to-teal-500"
-  },
-  {
-    id: "network-defense",
-    title: "Network Defense Essentials (NDE)",
-    issuer: "EC-Council",
+    id: "mtcna",
+    title: "MTCNA (MikroTik Certified Network Associate)",
+    issuer: "MikroTik",
     year: "2024",
-    category: "Cybersecurity",
-    credentialId: "ECC-NDE-884920",
-    description: "Sertifikasi keahlian dasar pertahanan jaringan komputer, firewall, dan keamanan infrastruktur.",
-    badgeColor: "from-rose-500 to-red-500"
+    category: "Networking & Security",
+    credentialId: "MTCNA-2024-PCR",
+    description: "Sertifikasi internasional konfigurasi router MikroTik, routing, firewall, dan manajemen jaringan.",
+    badgeColor: "from-cyan-500 to-blue-600"
   },
   {
     id: "ethical-hacking",
@@ -279,59 +288,62 @@ export const certifications = [
     badgeColor: "from-amber-500 to-orange-500"
   },
   {
-    id: "cyber-essentials",
-    title: "Cybersecurity Essentials (CE)",
+    id: "network-defense",
+    title: "Network Defense Essentials (NDE)",
     issuer: "EC-Council",
     year: "2024",
     category: "Cybersecurity",
-    credentialId: "ECC-CE-112094",
-    description: "Sertifikasi konsep utama keamanan siber, enkripsi data, dan manajemen risiko informasi.",
+    credentialId: "ECC-NDE-884920",
+    description: "Sertifikasi keahlian dasar pertahanan jaringan komputer, firewall, dan keamanan infrastruktur.",
+    badgeColor: "from-rose-500 to-red-500"
+  },
+  {
+    id: "cyber-essentials",
+    title: "Cybersecurity Essentials (CE)",
+    issuer: "Cisco Networking Academy",
+    year: "2024",
+    category: "Cybersecurity",
+    credentialId: "CISCO-CE-2024-HQY",
+    description: "Sertifikasi konsep utama keamanan siber, enkripsi data, dan manajemen risiko informasi dari Cisco.",
     badgeColor: "from-violet-500 to-purple-500"
-  },
-  {
-    id: "mtcna",
-    title: "MTCNA (MikroTik Certified Network Associate)",
-    issuer: "MikroTik",
-    year: "2024",
-    category: "Networking",
-    credentialId: "MTCNA-2024-PCR",
-    description: "Sertifikasi internasional konfigurasi router MikroTik, routing, firewall, dan manajemen jaringan.",
-    badgeColor: "from-cyan-500 to-blue-600"
-  },
-  {
-    id: "pkm-mahad-cert",
-    title: "Sertifikat Website Dev Ma'had Abu Ad Darda'",
-    issuer: "Politeknik Caltex Riau & Ma'had Abu Ad Darda'",
-    year: "2024",
-    category: "Social Contribution",
-    credentialId: "PKM-MAHAD-2024",
-    description: "Sertifikat penghargaan atas kontribusi pembuatan dan pengelolaan sistem website Ma'had Abu Ad Darda'.",
-    badgeColor: "from-teal-500 to-emerald-600"
   }
 ];
 
 export const education = [
   {
     institution: "Politeknik Caltex Riau (PCR)",
-    degree: "D4 Teknik Informatika (Bachelor of Applied Science in Informatics)",
-    period: "2022 – Oktober 2026 (Estimasi Lulus)",
+    degree: "Bachelor of Applied Computer Engineering (Teknik Informatika)",
+    period: "2022 – 2026",
     gpa: "3.41 / 4.00",
     status: "Mahasiswa Tingkat Akhir",
     highlights: [
-      "Fokus Studi: Full-Stack Web Architecture, Machine Learning, Database Engineering & Software Quality Assurance.",
-      "IPK Kumulatif: 3.41 dari 4.00 (Predikat Sangat Memuaskan).",
-      "Magang Industri 1 Tahun di Bank Riau Kepri Syariah."
+      "Fokus: Software development dan pengembangan aplikasi berbasis web.",
+      "IPK Kumulatif: 3.41 dari 4.00.",
+      "Magang Industri di Bank Riau Kepri Syariah."
     ]
   },
   {
     institution: "SMAN Plus Provinsi Riau",
-    degree: "Sekolah Menengah Atas — Jurusan MIPA",
+    degree: "Sekolah Menengah Atas — Program Sains (IPA)",
     period: "2019 – 2022",
-    gpa: "Lulus dengan Nilai Sangat Baik",
+    gpa: "Alumni",
     status: "Alumni",
     highlights: [
-      "Fokus pada Ilmu Pengetahuan Alam dan Matematika Dasar.",
+      "Program Sains (Science Program).",
       "Aktif dalam kegiatan organisasi siswa dan sains teknologi."
     ]
+  }
+];
+
+export const organizations = [
+  {
+    role: "Anggota, Departemen Olahraga & E-Sports",
+    organization: "Information Technology Student Association (ITSA), PCR",
+    period: "2023 – 2024"
+  },
+  {
+    role: "Security Coordinator",
+    organization: "PMB BASKET PCR Committee",
+    period: "2023"
   }
 ];
