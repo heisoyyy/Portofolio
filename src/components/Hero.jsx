@@ -59,7 +59,6 @@ export default function Hero() {
               fontFamily: 'JetBrains Mono, monospace', fontSize: '0.72rem',
               color: '#a7f3d0', width: 'fit-content',
             }}>
-              <span style={{ color: '#A3E635' }}>🎓</span>
               {personalInfo.status} &nbsp;·&nbsp; IPK {personalInfo.gpa}
             </div>
 

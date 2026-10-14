@@ -26,7 +26,7 @@ export default function Experience() {
         }}>
           <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#A3E635', boxShadow: '0 0 8px #A3E635', flexShrink: 0 }} />
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.78rem', color: '#A3E635', margin: 0, textAlign: 'center' }}>
-            🏦 2 Periode Magang — <strong>PT Bank Riau Kepri Syariah</strong> | Sep 2025 – Jul 2026 (10 Bulan Total)
+          2 Periode Magang — <strong>PT Bank Riau Kepri Syariah</strong> | Sep 2025 – Jul 2026 (10 Bulan Total)
           </p>
         </div>
 

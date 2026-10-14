@@ -24,7 +24,7 @@ export default function Certifications() {
             fontFamily: 'JetBrains Mono, monospace', fontWeight: 700, fontSize: '0.8rem',
             color: '#A3E635', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em',
           }}>
-            📚 Riwayat Pendidikan
+            Riwayat Pendidikan
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '1rem' }} className="edu-grid">
@@ -72,7 +72,7 @@ export default function Certifications() {
             fontFamily: 'JetBrains Mono, monospace', fontWeight: 700, fontSize: '0.8rem',
             color: '#A3E635', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em',
           }}>
-            🏅 Sertifikasi Kompetensi ({certifications.length} Sertifikasi)
+            Sertifikasi Kompetensi ({certifications.length} Sertifikasi)
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '1rem' }} className="cert-grid">

@@ -3,22 +3,18 @@ import { personalInfo } from '../data/portfolioData';
 
 const specializations = [
   {
-    icon: '⚡',
     title: 'Full-Stack Web Development',
     desc: 'React.js, Node.js/Express, Laravel, Spring Boot — membangun aplikasi enterprise berskala besar dengan arsitektur bersih dan modular.'
   },
   {
-    icon: '🏦',
     title: 'Banking & Data Engineering',
     desc: 'ETL pipeline yang memproses ~1 juta transaksi ATM dalam ~2 menit, dashboard KPI interaktif, dan laporan otomatis untuk perbankan syariah.'
   },
   {
-    icon: '🤖',
     title: 'Machine Learning & Analytics',
     desc: 'XGBoost (R² 0.9173), fine-tuning IndoBART (ROUGE-1 0.5757), dan visualisasi data ECharts/Chart.js untuk keputusan berbasis data.'
   },
   {
-    icon: '🔒',
     title: 'Security & Certification',
     desc: 'BNSP Programmer, TOEIC 530, MTCNA MikroTik, EC-Council EHE/NDE/CE, Cisco Cybersecurity Essentials.'
   }
