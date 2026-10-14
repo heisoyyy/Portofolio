@@ -76,7 +76,7 @@ export default function Contact() {
                 className="btn-accent"
                 style={{ display: 'block', textAlign: 'center', padding: '12px', borderRadius: '0.75rem', fontSize: '0.8rem', fontFamily: 'JetBrains Mono, monospace', textDecoration: 'none', marginTop: '0.5rem' }}
               >
-              Kirim Pesan via WhatsApp
+                Kirim Pesan via WhatsApp
               </a>
             </div>
 
@@ -179,7 +179,7 @@ export default function Contact() {
                     opacity: isSubmitting ? 0.65 : 1, border: 'none',
                   }}
                 >
-                  {isSubmitting ? '⏳ Mengirim Pesan...' : 'Kirim Pesan Sekarang'}
+                  {isSubmitting ? 'Mengirim Pesan...' : 'Kirim Pesan Sekarang'}
                 </button>
               </form>
             )}
